@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/product">
           <Product />
         </Route>
-        <Route exact path="/store">
+        <Route path="/store">
           <ProductList />
         </Route>
       </Switch>

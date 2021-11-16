@@ -46,7 +46,8 @@ const Circle = styled.div`
 `;
 
 const Image = styled.img`
-  height: 75%;
+  max-height: 75%;
+  max-width: 80%;
   z-index: 2;
 `;
 
@@ -68,23 +69,25 @@ const Icon = styled.div`
 
 const Product = ({ item }) => {
   return (
-    <Link to="/product">
-        <Container>
+    
+        <Container onClick={() => console.log(window.location.pathname)}>
           <Circle />
           <Image src={item.img} />
           <Info>
             <Icon>
               <ShoppingCartOutlined />
             </Icon>
+            <Link to="/product">
             <Icon>
               <SearchOutlined />
             </Icon>
+            </Link>
             <Icon>
               <FavoriteBorderOutlined />
             </Icon>
           </Info>
         </Container>
-    </Link>
+    
   );
 };
 

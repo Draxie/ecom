@@ -124,16 +124,16 @@ const Slider = () => {
                     switch (item.id) {
                         case 1: 
                         return (
-                            <Link to="/store"><Button>SHOW NOW</Button></Link>
+                            <Link to="/store/prints"><Button>SHOW NOW</Button></Link>
                             
                             )
                         case 2:
                             return (
-                            <Link to="/store"><Button>SHOW NOW</Button></Link>
+                            <Link to="/store/painting-supplies"><Button>SHOW NOW</Button></Link>
                             )
                         case 3: 
                         return (
-                            <Link to="/store"><Button>SHOW NOW</Button></Link>
+                            <Link to="/store/sprays"><Button>SHOW NOW</Button></Link>
                             )
                     }
                 })()}

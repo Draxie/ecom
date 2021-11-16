@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { popularProducts } from "../data";
+import { paints, sprays, prints } from "../data";
 import Product from "./Product";
 
 const Container = styled.div`
@@ -10,11 +10,35 @@ const Container = styled.div`
 `;
 
 const Products = () => {
+  
   return (
     <Container>
-      {popularProducts.map((item) => (
-        <Product item={item} key={item.id} />
-      ))}
+      {(() => {
+          switch (window.location.pathname) {
+              case "/store/prints":
+                return (
+                  prints.map((item) => (
+                    <Product item={item} key={item.id} />
+                  ))
+                )
+              case "/store/painting-supplies":
+                return (
+                  paints.map((item) => (
+                    <Product item={item} key={item.id} />
+                  ))
+                )
+              case "/store/sprays":
+                return (
+                  sprays.map((item) => (
+                    <Product item={item} key={item.id} />
+                  ))
+                )
+              default:
+                return (
+                  <h1>ERROR</h1>
+                )
+          }
+      })()}
     </Container>
   );
 };

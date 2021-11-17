@@ -91,9 +91,9 @@ const CartItem = ({ item, cart, setQuantity, setCart }) => {
         </ProductDetail>
         <PriceDetail>
           <ProductAmountContainer>
-            <Add onClick={() => setQuantity(item, item.quantity + 1)} />
+            <Add style={{cursor:"pointer"}} onClick={() => setQuantity(item, item.quantity + 1)} />
             <ProductAmount value={item.quantity}></ProductAmount>
-            <Remove
+            <Remove style={{cursor:"pointer"}}
               onClick={() =>
                 item.quantity === 1
                   ? removeFromCart(item)

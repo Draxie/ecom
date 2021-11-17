@@ -35,9 +35,6 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-
-
-
 const ProductList = ({products, cart}) => {
   return (
     <Container>

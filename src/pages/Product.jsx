@@ -59,25 +59,11 @@ const AddContainer = styled.div`
   ${mobile({ width: "100%" })}
 `;
 
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-`;
-
-const Amount = styled.input`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
-  text-align: center;
-  margin: 0px 5px;
-`;
-
 const Button = styled.button`
   padding: 15px;
   border: none;
   background-color: teal;
+  width: 200px;
   color: white;
   cursor: pointer;
   font-weight: 500;
@@ -86,7 +72,7 @@ const Button = styled.button`
   }
 `;
 
-const Product = ({products, cart, addToCart}) => {
+const Product = ({products, cart, addToCart, setCart, setQuantity}) => {
 
   const [amount, setAmount] = useState(1);
   let index = 0;
@@ -120,18 +106,11 @@ const Product = ({products, cart, addToCart}) => {
             tristique tortor pretium ut. Curabitur elit justo, consequat id
             condimentum ac, volutpat ornare.
           </Desc>
-          <Price>$ {product.price * amount}</Price>
           <AddContainer>
-            <AmountContainer>
-              <Remove style={{cursor:'pointer'}} onClick={()=> setAmount(()=> amount === 1 ? 1 : amount-1)}/>
-              <Amount value={amount} max={10} min={1}/>
-              <Add style={{cursor:'pointer'}} onClick={()=> setAmount(amount+1)}/>
-            </AmountContainer>
+          <Price>$ {product.price * amount}</Price>
             <Button onClick={()=> {
-              for (let i = 0; i < amount; i++) {
-                addToCart(product)
-              }
-            }}>ADD TO CART</Button>
+                addToCart(product);
+                }}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

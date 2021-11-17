@@ -92,7 +92,7 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const Cart = ({cart, setQuantity, clearCart, setCart}) => {
+const Cart = ({cart, setQuantity, setCart}) => {
   
 
   const getTotalSum = () => {
@@ -100,6 +100,11 @@ const Cart = ({cart, setQuantity, clearCart, setCart}) => {
       (sum, { price, quantity }) => sum + price * quantity,
       0
     );
+  };
+  
+
+  const clearCart = () => {
+    setCart([]);
   };
 
   return (

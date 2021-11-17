@@ -4,7 +4,7 @@ import Product from "./pages/Product";
 import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import print1 from "./assets/prints/print1.png"
 import print2 from "./assets/prints/print2.png"
@@ -115,8 +115,10 @@ const App = () => {
       }
     ]
   ]);
-  
-  const [cart, setCart] = useState([]);
+
+
+  let savedCart = localStorage.getItem('cart')
+  const [cart, setCart] = useState(()=> (savedCart !== null) ? JSON.parse(savedCart) : [])
 
   const addToCart = (product) => {
     let newCart = [...cart];
@@ -135,10 +137,6 @@ const App = () => {
     setCart(newCart);
   };
 
-  const clearCart = () => {
-    setCart([]);
-  };
-
   const setQuantity = (product, amount) => {
     const newCart = [...cart];
     newCart.find(
@@ -147,7 +145,9 @@ const App = () => {
     setCart(newCart);
   };
 
-
+  useEffect(()=> {
+    localStorage.setItem('cart',JSON.stringify(cart))
+  }, [cart])
 
 
 
@@ -161,7 +161,6 @@ const App = () => {
           <Cart 
           cart={cart}
           setQuantity= {setQuantity}
-          clearCart= {clearCart}
           setCart= {setCart}
           />
         </Route>
@@ -176,6 +175,8 @@ const App = () => {
           cart= {cart} 
           products= {products} 
           addToCart= {addToCart}
+          setCart= {setCart}
+          setQuantity= {setQuantity}
           />
         </Route>
         <Route path="/store">

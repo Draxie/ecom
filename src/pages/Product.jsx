@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
-import canvas3 from "../assets/canvas3.png"
+import { useState } from "react";
 
 const Container = styled.div``;
 
@@ -65,39 +65,54 @@ const AmountContainer = styled.div`
   font-weight: 700;
 `;
 
-const Amount = styled.span`
+const Amount = styled.input`
   width: 30px;
   height: 30px;
   border-radius: 10px;
   border: 1px solid teal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   margin: 0px 5px;
 `;
 
 const Button = styled.button`
   padding: 15px;
-  border: 2px solid teal;
-  background-color: white;
+  border: none;
+  background-color: teal;
+  color: white;
   cursor: pointer;
   font-weight: 500;
   &:hover{
-      background-color: #f8f4f4;
+      filter: brightness(150%);
   }
 `;
 
-const Product = () => {
+const Product = ({products, cart, addToCart}) => {
+
+  const [amount, setAmount] = useState(1);
+  let index = 0;
+  switch (window.location.pathname.slice(-6,-1)) {
+    case 'print':
+      index = 0;
+      break;
+    case 'paint':
+      index = 1;
+      break;
+    case 'spray':
+      index = 2;
+      break;
+  }
+  let product = products[index][parseInt(window.location.pathname.slice(-1)-1)]
+
   return (
     <Container>
-      <Navbar />
+      <Navbar  cart= {cart}/>
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src={canvas3} />
+          <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Spray Set</Title>
+          <Title>Lorem, ipsum.</Title>
           <Desc>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
@@ -105,14 +120,18 @@ const Product = () => {
             tristique tortor pretium ut. Curabitur elit justo, consequat id
             condimentum ac, volutpat ornare.
           </Desc>
-          <Price>$ 120</Price>
+          <Price>$ {product.price * amount}</Price>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove style={{cursor:'pointer'}} onClick={()=> setAmount(()=> amount === 1 ? 1 : amount-1)}/>
+              <Amount value={amount} max={10} min={1}/>
+              <Add style={{cursor:'pointer'}} onClick={()=> setAmount(amount+1)}/>
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={()=> {
+              for (let i = 0; i < amount; i++) {
+                addToCart(product)
+              }
+            }}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

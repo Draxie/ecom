@@ -38,10 +38,10 @@ const Option = styled.option``;
 
 
 
-const ProductList = () => {
+const ProductList = ({products, cart}) => {
   return (
     <Container>
-      <Navbar />
+      <Navbar  cart= {cart}/>
       <Announcement />
       <Title>Paints</Title>
       <FilterContainer>
@@ -53,7 +53,7 @@ const ProductList = () => {
           </Select>
         </Filter>
       </FilterContainer>
-      <Products />
+      <Products products={products} />
       <Newsletter />
       <Footer />
     </Container>

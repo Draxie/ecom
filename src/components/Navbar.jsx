@@ -59,7 +59,7 @@ const MenuItem = styled.div`
   text-decoration:none;
 `;
 
-const Navbar = () => {
+const Navbar = ({cart}) => {
   return (
     <Container>
       <Wrapper>
@@ -75,7 +75,7 @@ const Navbar = () => {
           <MenuItem><Link to="/register" style={{ textDecoration: 'none', color:"white" }}>REGISTER</Link></MenuItem>
           <MenuItem><Link to="/login" style={{ textDecoration: 'none', color:"white"  }}>SIGN IN</Link></MenuItem>
           <MenuItem>
-            <Badge badgeContent={4} >
+            <Badge badgeContent={cart.length} >
             <Link to="/cart" style={{ textDecoration: 'none', color:"white"  }}>
                 <ShoppingCartOutlined />
                 </Link>

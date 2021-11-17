@@ -70,21 +70,15 @@ const Icon = styled.div`
 const Product = ({ item }) => {
   return (
     
-        <Container onClick={() => console.log(window.location.pathname)}>
+        <Container>
           <Circle />
           <Image src={item.img} />
           <Info>
-            <Icon>
-              <ShoppingCartOutlined />
-            </Icon>
-            <Link to="/product">
+            <Link to={"/product/"+ item.url}>
             <Icon>
               <SearchOutlined />
             </Icon>
             </Link>
-            <Icon>
-              <FavoriteBorderOutlined />
-            </Icon>
           </Info>
         </Container>
     

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { paints, sprays, prints } from "../data";
 import Product from "./Product";
 
 const Container = styled.div`
@@ -9,7 +8,7 @@ const Container = styled.div`
     justify-content: space-between;
 `;
 
-const Products = () => {
+const Products = ({products}) => {
   
   return (
     <Container>
@@ -17,19 +16,19 @@ const Products = () => {
           switch (window.location.pathname) {
               case "/store/prints":
                 return (
-                  prints.map((item) => (
+                  products[0].map((item) => (
                     <Product item={item} key={item.id} />
                   ))
                 )
               case "/store/painting-supplies":
                 return (
-                  paints.map((item) => (
+                  products[1].map((item) => (
                     <Product item={item} key={item.id} />
                   ))
                 )
               case "/store/sprays":
                 return (
-                  sprays.map((item) => (
+                  products[2].map((item) => (
                     <Product item={item} key={item.id} />
                   ))
                 )

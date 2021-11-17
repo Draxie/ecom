@@ -5,10 +5,10 @@ import Categories from "../components/Categories";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 
-const Home = () => {
+const Home = ({cart}) => {
     return (
         <div>
-            <Navbar/>
+            <Navbar cart={cart}/>
             <Announcement/>
             <Slider/>
             <Categories/>

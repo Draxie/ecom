@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -47,7 +48,23 @@ const CategoryItem = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
+              {(() => {
+                    switch (item.id) {
+                        case 1: 
+                        return (
+                            <Link to="/store/prints"><Button>SHOW NOW</Button></Link>
+                            
+                            )
+                        case 2:
+                            return (
+                            <Link to="/store/painting-supplies"><Button>SHOW NOW</Button></Link>
+                            )
+                        case 3: 
+                        return (
+                            <Link to="/store/sprays"><Button>SHOW NOW</Button></Link>
+                            )
+                    }
+                })()}
       </Info>
     </Container>
   );

@@ -75,6 +75,9 @@ const Button = styled.button`
 const Product = ({ products, cart, addToCart }) => {
   const [amount, setAmount] = useState(1);
   let index = 0;
+
+  /*---------Url/Category Switch-------- */
+
   switch (window.location.pathname.slice(-6, -1)) {
     case "print":
       index = 0;

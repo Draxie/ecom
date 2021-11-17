@@ -115,10 +115,14 @@ const App = () => {
     ],
   ]);
 
+  /*--------------Load Saved Cart------------- */
+
   let savedCart = localStorage.getItem("cart");
   const [cart, setCart] = useState(() =>
     savedCart !== null ? JSON.parse(savedCart) : []
   );
+
+/*--------------Add Item Or Increment Quantity------------- */
 
   const addToCart = (product) => {
     let newCart = [...cart];
@@ -135,13 +139,17 @@ const App = () => {
     setCart(newCart);
   };
 
+/*--------------Update Quantity------------- */
+
   const setQuantity = (product, amount) => {
     const newCart = [...cart];
     newCart.find((item) => item.name === product.name).quantity = amount;
     setCart(newCart);
   };
 
-  useEffect(() => {
+/*---------Save Changes Every Time Cart Updates-------- */
+  
+useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 

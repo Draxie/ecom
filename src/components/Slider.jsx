@@ -3,7 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
-import bg from "../assets/formsBG.jpg"
+import bg from "../assets/formsBG.jpg";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
@@ -12,13 +12,10 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.4)
-    ),
-    url(${bg})  center;
-    color: white;
-    text-shadow: 0px 0px 30px black;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+    url(${bg}) center;
+  color: white;
+  text-shadow: 0px 0px 30px black;
   ${mobile({ display: "none" })}
 `;
 
@@ -37,7 +34,7 @@ const Arrow = styled.div`
   right: ${(props) => props.direction === "right" && "10px"};
   margin: auto;
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
   z-index: 2;
 `;
 
@@ -121,22 +118,27 @@ const Slider = () => {
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
               {(() => {
-                    switch (item.id) {
-                        case 1: 
-                        return (
-                            <Link to="/store/prints"><Button>SHOW NOW</Button></Link>
-                            
-                            )
-                        case 2:
-                            return (
-                            <Link to="/store/painting-supplies"><Button>SHOW NOW</Button></Link>
-                            )
-                        case 3: 
-                        return (
-                            <Link to="/store/sprays"><Button>SHOW NOW</Button></Link>
-                            )
-                    }
-                })()}
+                switch (item.id) {
+                  case 1:
+                    return (
+                      <Link to="/store/prints">
+                        <Button>SHOW NOW</Button>
+                      </Link>
+                    );
+                  case 2:
+                    return (
+                      <Link to="/store/painting-supplies">
+                        <Button>SHOW NOW</Button>
+                      </Link>
+                    );
+                  case 3:
+                    return (
+                      <Link to="/store/sprays">
+                        <Button>SHOW NOW</Button>
+                      </Link>
+                    );
+                }
+              })()}
             </InfoContainer>
           </Slide>
         ))}

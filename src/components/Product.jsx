@@ -30,10 +30,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   position: relative;
-  &:hover ${Info}{
+  &:hover ${Info} {
     opacity: 1;
   }
 `;
@@ -69,19 +69,17 @@ const Icon = styled.div`
 
 const Product = ({ item }) => {
   return (
-    
-        <Container>
-          <Circle />
-          <Image src={item.img} />
-          <Info>
-            <Link to={"/product/"+ item.url}>
-            <Icon>
-              <SearchOutlined />
-            </Icon>
-            </Link>
-          </Info>
-        </Container>
-    
+    <Container>
+      <Circle />
+      <Image src={item.img} />
+      <Info>
+        <Link to={"/product/" + item.url}>
+          <Icon>
+            <SearchOutlined />
+          </Icon>
+        </Link>
+      </Info>
+    </Container>
   );
 };
 

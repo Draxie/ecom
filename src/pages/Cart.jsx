@@ -34,8 +34,7 @@ const TopButton = styled.button`
   cursor: pointer;
   border: none;
   outline: none;
-  background-color: ${(props) =>
-    props.type === "filled" ? "teal" : "pink"};
+  background-color: ${(props) => (props.type === "filled" ? "teal" : "pink")};
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
@@ -92,16 +91,10 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const Cart = ({cart, setQuantity, setCart}) => {
-  
-
+const Cart = ({ cart, setQuantity, setCart }) => {
   const getTotalSum = () => {
-    return cart.reduce(
-      (sum, { price, quantity }) => sum + price * quantity,
-      0
-    );
+    return cart.reduce((sum, { price, quantity }) => sum + price * quantity, 0);
   };
-  
 
   const clearCart = () => {
     setCart([]);
@@ -109,24 +102,32 @@ const Cart = ({cart, setQuantity, setCart}) => {
 
   return (
     <Container>
-      <Navbar cart= {cart}/>
+      <Navbar cart={cart} />
       <Announcement />
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <Link to="/" style={{textDecoration:'none'}}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <TopButton>CONTINUE SHOPPING</TopButton>
           </Link>
           <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts>
-          <TopButton onClick={clearCart} type="filled">CLEAR CART</TopButton>
+          <TopButton onClick={clearCart} type="filled">
+            CLEAR CART
+          </TopButton>
         </Top>
         <Bottom>
           <Info>
             {cart.map((item) => (
-              <CartItem item={item} setCart={setCart} setQuantity={setQuantity} cart={cart}  key={item.id} />
+              <CartItem
+                item={item}
+                setCart={setCart}
+                setQuantity={setQuantity}
+                cart={cart}
+                key={item.id}
+              />
             ))}
           </Info>
           <Summary>
@@ -137,11 +138,13 @@ const Cart = ({cart, setQuantity, setCart}) => {
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
-              <SummaryItemPrice>$ {cart.length * 3.2}</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.length * 3}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ {getTotalSum()+ cart.length * 3.2}</SummaryItemPrice>
+              <SummaryItemPrice>
+                $ {getTotalSum() + cart.length * 3.2}
+              </SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
           </Summary>

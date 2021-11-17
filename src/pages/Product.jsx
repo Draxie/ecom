@@ -12,9 +12,9 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
-background-color: #333333;
-color: white;
-  ${mobile({ padding: "10px", flexDirection:"column" })}
+  background-color: #333333;
+  color: white;
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -67,31 +67,31 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   font-weight: 500;
-  &:hover{
-      filter: brightness(150%);
+  &:hover {
+    filter: brightness(150%);
   }
 `;
 
-const Product = ({products, cart, addToCart, setCart, setQuantity}) => {
-
+const Product = ({ products, cart, addToCart }) => {
   const [amount, setAmount] = useState(1);
   let index = 0;
-  switch (window.location.pathname.slice(-6,-1)) {
-    case 'print':
+  switch (window.location.pathname.slice(-6, -1)) {
+    case "print":
       index = 0;
       break;
-    case 'paint':
+    case "paint":
       index = 1;
       break;
-    case 'spray':
+    case "spray":
       index = 2;
       break;
   }
-  let product = products[index][parseInt(window.location.pathname.slice(-1)-1)]
+  let product =
+    products[index][parseInt(window.location.pathname.slice(-1) - 1)];
 
   return (
     <Container>
-      <Navbar  cart= {cart}/>
+      <Navbar cart={cart} />
       <Announcement />
       <Wrapper>
         <ImgContainer>
@@ -107,10 +107,14 @@ const Product = ({products, cart, addToCart, setCart, setQuantity}) => {
             condimentum ac, volutpat ornare.
           </Desc>
           <AddContainer>
-          <Price>$ {product.price * amount}</Price>
-            <Button onClick={()=> {
+            <Price>$ {product.price * amount}</Price>
+            <Button
+              onClick={() => {
                 addToCart(product);
-                }}>ADD TO CART</Button>
+              }}
+            >
+              ADD TO CART
+            </Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

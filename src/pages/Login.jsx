@@ -1,15 +1,12 @@
 import styled from "styled-components";
-import {mobile} from "../responsive";
-import bg from "../assets/formsBG.jpg"
+import { mobile } from "../responsive";
+import bg from "../assets/formsBG.jpg";
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.4)
-    ),
-    url(${bg})  center;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+    url(${bg}) center;
   background-size: cover;
   display: flex;
   align-items: center;

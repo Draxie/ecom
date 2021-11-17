@@ -20,7 +20,7 @@ const Desc = styled.div`
   font-size: 24px;
   font-weight: 300;
   margin-bottom: 20px;
-  text-align: "center"; 
+  text-align: "center";
 `;
 
 const InputContainer = styled.div`
@@ -49,8 +49,12 @@ const Button = styled.button`
 const Newsletter = () => {
   return (
     <Container>
-      <Title>Sp<b>letter</b></Title>
-      <Desc>You are broke but still wanna create art? Let us inform you about sales.</Desc>
+      <Title>
+        Sp<b>letter</b>
+      </Title>
+      <Desc>
+        You are broke but still wanna create art? Let us inform you about sales.
+      </Desc>
       <InputContainer>
         <Input placeholder="Your email" />
         <Button>

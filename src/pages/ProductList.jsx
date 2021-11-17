@@ -6,8 +6,8 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 
 const Container = styled.div`
-background-color: #333333;
-color: white;
+  background-color: #333333;
+  color: white;
 `;
 
 const Title = styled.h1`
@@ -35,10 +35,10 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-const ProductList = ({products, cart}) => {
+const ProductList = ({ products, cart }) => {
   return (
     <Container>
-      <Navbar  cart= {cart}/>
+      <Navbar cart={cart} />
       <Announcement />
       <Title>Paints</Title>
       <FilterContainer>

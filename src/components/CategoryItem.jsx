@@ -29,17 +29,17 @@ const Info = styled.div`
 `;
 
 const Title = styled.h1`
-    color:white;
-    margin-bottom: 20px;
+  color: white;
+  margin-bottom: 20px;
 `;
 
 const Button = styled.button`
-    border:none;
-    padding: 10px;
-    background-color: white;
-    color:gray;
-    cursor: pointer;
-    font-weight: 600;
+  border: none;
+  padding: 10px;
+  background-color: white;
+  color: gray;
+  cursor: pointer;
+  font-weight: 600;
 `;
 
 const CategoryItem = ({ item }) => {
@@ -48,23 +48,28 @@ const CategoryItem = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-              {(() => {
-                    switch (item.id) {
-                        case 1: 
-                        return (
-                            <Link to="/store/prints"><Button>SHOW NOW</Button></Link>
-                            
-                            )
-                        case 2:
-                            return (
-                            <Link to="/store/painting-supplies"><Button>SHOW NOW</Button></Link>
-                            )
-                        case 3: 
-                        return (
-                            <Link to="/store/sprays"><Button>SHOW NOW</Button></Link>
-                            )
-                    }
-                })()}
+        {(() => {
+          switch (item.id) {
+            case 1:
+              return (
+                <Link to="/store/prints">
+                  <Button>SHOW NOW</Button>
+                </Link>
+              );
+            case 2:
+              return (
+                <Link to="/store/painting-supplies">
+                  <Button>SHOW NOW</Button>
+                </Link>
+              );
+            case 3:
+              return (
+                <Link to="/store/sprays">
+                  <Button>SHOW NOW</Button>
+                </Link>
+              );
+          }
+        })()}
       </Info>
     </Container>
   );

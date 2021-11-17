@@ -3,7 +3,7 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
@@ -35,12 +35,12 @@ const Logo = styled.h1`
 `;
 
 const Icon = styled.span`
-   height: 30px; 
-   width: 30px;
-   background-image: url(${logo});
-   background-size: cover;
-   margin-right: 10px;
-`
+  height: 30px;
+  width: 30px;
+  background-image: url(${logo});
+  background-size: cover;
+  margin-right: 10px;
+`;
 
 const Right = styled.div`
   flex: 1;
@@ -59,26 +59,43 @@ const MenuItem = styled.div`
   text-decoration:none;
 `;
 
-const Navbar = ({cart}) => {
+const Navbar = ({ cart }) => {
   return (
     <Container>
       <Wrapper>
         <Left>
-            <Link to="/" style={{ textDecoration: 'none', color:"white" }}>
-                <Logo> 
-                    <Icon/>
-                    SPLATTER
-                </Logo>
-            </Link>
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+            <Logo>
+              <Icon />
+              SPLATTER
+            </Logo>
+          </Link>
         </Left>
         <Right>
-          <MenuItem><Link to="/register" style={{ textDecoration: 'none', color:"white" }}>REGISTER</Link></MenuItem>
-          <MenuItem><Link to="/login" style={{ textDecoration: 'none', color:"white"  }}>SIGN IN</Link></MenuItem>
           <MenuItem>
-            <Badge badgeContent={cart.length} >
-            <Link to="/cart" style={{ textDecoration: 'none', color:"white"  }}>
+            <Link
+              to="/register"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              REGISTER
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link
+              to="/login"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              SIGN IN
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Badge badgeContent={cart.length}>
+              <Link
+                to="/cart"
+                style={{ textDecoration: "none", color: "white" }}
+              >
                 <ShoppingCartOutlined />
-                </Link>
+              </Link>
             </Badge>
           </MenuItem>
         </Right>

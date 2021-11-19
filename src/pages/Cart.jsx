@@ -143,7 +143,7 @@ const Cart = ({ cart, setQuantity, setCart }) => {
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>
-                $ {getTotalSum() + cart.length * 3.2}
+                $ {getTotalSum() + cart.length * 3}
               </SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
